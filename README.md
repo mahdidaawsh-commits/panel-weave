@@ -52,6 +52,11 @@ node --test tests/rpc-preflight.test.cjs
 
 The StudioNet workflow runs two synthetic panels. It checks each signed
 transaction and compares the resulting state against a permutation oracle.
-The assigned panel uses live drand randomness. Generic CLI transport and test
+The assigned panel used live quicknet round 33887689 to select rank 3 of
+five valid assignments. The impossible panel recorded two reviewers competing
+for one eligible submission. [StudioNet receipts and contract addresses](proofs/README.md) ·
+[Submission text](SUBMISSION.md)
+
+Generic CLI transport and test
 signing helpers are reused under MIT from
 [ArchiveLift](https://github.com/gabrieladash123-bit/archive-lift).

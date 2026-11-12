@@ -1,0 +1,526 @@
+{
+  "scenario": "assigned",
+  "contract": "0x6bdE3857ce3E3F078c2a2fb34b0aF338c73A0D76",
+  "deployment": "0xcbb57780b6aa1802f6779b972bf0b3583c8ee2b2a4f317492cdc8f302ef62e41",
+  "source_sha256": "751f6ae23716146bd9d274aec603b22f93be915b3bee69c15b634f57b15e9447",
+  "trace": [
+    {
+      "label": "deploy",
+      "hash": "0xcbb57780b6aa1802f6779b972bf0b3583c8ee2b2a4f317492cdc8f302ef62e41",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xb094fea8b7a8983571cf765d4d9cf5a23b56ce50",
+      "args": {
+        "args": [
+          [
+            "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+            "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+          ],
+          360
+        ]
+      },
+      "error": null,
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [],
+        "resolution": null,
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "early-draw",
+      "hash": "0x4c9de3beb6d09f852b932d822b0a6112deb93e1207bab255a102566778416904",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xb094fea8b7a8983571cf765d4d9cf5a23b56ce50",
+      "args": {
+        "method": "draw",
+        "args": []
+      },
+      "error": "Enrollment open",
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [],
+        "resolution": null,
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "enroll-0",
+      "hash": "0x1ceddd6bd6bfedbce39a91b7fa587de6383032797e0119826fe4a93520346cf6",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 4,
+      "disagree": 0,
+      "idle": 1,
+      "signer": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+      "args": {
+        "method": "enroll",
+        "args": [
+          "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8",
+          [
+            "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+          ]
+        ]
+      },
+      "error": null,
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          }
+        ],
+        "resolution": null,
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "enroll-1",
+      "hash": "0x194feec4c64d4c1d7836681bc015238778298495573dccbedaa4bede45234efe",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+      "args": {
+        "method": "enroll",
+        "args": [
+          "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11",
+          []
+        ]
+      },
+      "error": null,
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "exclusions": [],
+            "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+          },
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          }
+        ],
+        "resolution": null,
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "enroll-2",
+      "hash": "0x306c2694e732b5d0c1c4c6a84f424b28c98282fcde4b588697caf7683d3a081b",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+      "args": {
+        "method": "enroll",
+        "args": [
+          "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363",
+          [
+            "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+          ]
+        ]
+      },
+      "error": null,
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "exclusions": [],
+            "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+          },
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          },
+          {
+            "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+            "exclusions": [
+              "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+            ],
+            "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+          }
+        ],
+        "resolution": null,
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "enroll-3",
+      "hash": "0x47d940beedf7d8516b06b5cd919652b9d33709c1ce40ced59d91da5c39d97b35",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+      "args": {
+        "method": "enroll",
+        "args": [
+          "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e",
+          []
+        ]
+      },
+      "error": null,
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+            "exclusions": [],
+            "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+          },
+          {
+            "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "exclusions": [],
+            "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+          },
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          },
+          {
+            "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+            "exclusions": [
+              "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+            ],
+            "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+          }
+        ],
+        "resolution": null,
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "draw",
+      "hash": "0x512f507e25d5306f06b0b6b02cbca3dcdbabdf7e81af1dd1f3a2f1600a2cce6d",
+      "status": "FINALIZED",
+      "execution": "SUCCESS",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xb094fea8b7a8983571cf765d4d9cf5a23b56ce50",
+      "args": {
+        "method": "draw",
+        "args": []
+      },
+      "error": null,
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+            "exclusions": [],
+            "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+          },
+          {
+            "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "exclusions": [],
+            "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+          },
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          },
+          {
+            "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+            "exclusions": [
+              "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+            ],
+            "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+          }
+        ],
+        "resolution": {
+          "assignments": [
+            {
+              "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+              "reviewer": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+              "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+            },
+            {
+              "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+              "reviewer": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+              "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+            },
+            {
+              "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+              "reviewer": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+              "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+            },
+            {
+              "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+              "reviewer": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+              "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+            }
+          ],
+          "beacon": {
+            "randomness": "ee7a08d51d336716cccdb8689e82c6d05c77faa95a1c6d098a1bfe518a265861",
+            "signature": "ad189ae0d536dab1a0309a0f208b4b32a8cd27de2eb6e45e9b222999190cea593288c3f094afac578cc93be9dfcd42f2"
+          },
+          "matching_count": 5,
+          "outcome": "ASSIGNED",
+          "rank": 3,
+          "roster_sha256": "3fecf8ae7985338da6c340ed90592ed7fab720fe1c7d3218f836b0df016b727e"
+        },
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "late-withdraw",
+      "hash": "0x816b274220a5def64d67da82403e89f837705b64b0590937446b3526c1f35432",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+      "args": {
+        "method": "withdraw",
+        "args": []
+      },
+      "error": "Enrollment closed",
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+            "exclusions": [],
+            "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+          },
+          {
+            "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "exclusions": [],
+            "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+          },
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          },
+          {
+            "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+            "exclusions": [
+              "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+            ],
+            "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+          }
+        ],
+        "resolution": {
+          "assignments": [
+            {
+              "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+              "reviewer": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+              "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+            },
+            {
+              "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+              "reviewer": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+              "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+            },
+            {
+              "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+              "reviewer": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+              "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+            },
+            {
+              "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+              "reviewer": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+              "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+            }
+          ],
+          "beacon": {
+            "randomness": "ee7a08d51d336716cccdb8689e82c6d05c77faa95a1c6d098a1bfe518a265861",
+            "signature": "ad189ae0d536dab1a0309a0f208b4b32a8cd27de2eb6e45e9b222999190cea593288c3f094afac578cc93be9dfcd42f2"
+          },
+          "matching_count": 5,
+          "outcome": "ASSIGNED",
+          "rank": 3,
+          "roster_sha256": "3fecf8ae7985338da6c340ed90592ed7fab720fe1c7d3218f836b0df016b727e"
+        },
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    },
+    {
+      "label": "replay",
+      "hash": "0xb4294cc9dd876e1d7daf7cedba32f9a766645bea6e2b7edff5378cd0c60c4564",
+      "status": "FINALIZED",
+      "execution": "ERROR",
+      "result": "MAJORITY_AGREE",
+      "agree": 3,
+      "disagree": 0,
+      "idle": 2,
+      "signer": "0xb094fea8b7a8983571cf765d4d9cf5a23b56ce50",
+      "args": {
+        "method": "draw",
+        "args": []
+      },
+      "error": "Panel already resolved",
+      "state": {
+        "beacon_round": 33887689,
+        "beacon_time": 1794466431,
+        "cutoff": 1794466310,
+        "entries": [
+          {
+            "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+            "exclusions": [],
+            "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+          },
+          {
+            "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+            "exclusions": [],
+            "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+          },
+          {
+            "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+            "exclusions": [
+              "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7"
+            ],
+            "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+          },
+          {
+            "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+            "exclusions": [
+              "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93"
+            ],
+            "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+          }
+        ],
+        "resolution": {
+          "assignments": [
+            {
+              "author": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+              "reviewer": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+              "submission_sha256": "fbd2e9b606a65392c565b1834a45c887f2bd9eed524a2f63c1a6be630d07efc8"
+            },
+            {
+              "author": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+              "reviewer": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+              "submission_sha256": "bb485fabecc4394932c12d60de5daa6c0bb9c20e7ef7765012a00fc06a4b4363"
+            },
+            {
+              "author": "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+              "reviewer": "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+              "submission_sha256": "2843760e30122fc89a5a0bd5b779a8f25612acf331b4bb64a029237d2821785e"
+            },
+            {
+              "author": "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+              "reviewer": "0xe9e79f034a3970f44d697a7401c18d2299ded207",
+              "submission_sha256": "f737f74d042ab6dc5c05d8f37a2ddd9dc5e1e54de3e15cee986d6e354c1f2a11"
+            }
+          ],
+          "beacon": {
+            "randomness": "ee7a08d51d336716cccdb8689e82c6d05c77faa95a1c6d098a1bfe518a265861",
+            "signature": "ad189ae0d536dab1a0309a0f208b4b32a8cd27de2eb6e45e9b222999190cea593288c3f094afac578cc93be9dfcd42f2"
+          },
+          "matching_count": 5,
+          "outcome": "ASSIGNED",
+          "rank": 3,
+          "roster_sha256": "3fecf8ae7985338da6c340ed90592ed7fab720fe1c7d3218f836b0df016b727e"
+        },
+        "roster": [
+          "0x259613f27a0c5ff2dbec2efd63e4fab2c0072e93",
+          "0xb4d8eb48ec577f799b011fec0c7d965a590b9cd7",
+          "0xb9a80cea9793362a8f434da47044b41fb79d3352",
+          "0xe9e79f034a3970f44d697a7401c18d2299ded207"
+        ]
+      }
+    }
+  ]
+}
