@@ -22,6 +22,13 @@ def now():
     return int(datetime.now(timezone.utc).timestamp())
 
 
+def address_hex(address):
+    raw = address.as_bytes if isinstance(address, Address) else address
+    if not isinstance(raw, bytes) or len(raw) != 20:
+        fail('Invalid address')
+    return '0x' + raw.hex()
+
+
 def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(',', ':'))
 
@@ -139,7 +146,7 @@ class PanelWeave(gl.Contract):
     def __init__(self, roster: list[Address], enrollment_seconds: int):
         if not 3 <= len(roster) <= 8:
             fail('Invalid roster')
-        addresses = ['0x' + bytes(address).hex() for address in roster]
+        addresses = [address_hex(address) for address in roster]
         if len(set(addresses)) != len(addresses) or ZERO in addresses:
             fail('Invalid roster')
         if not 120 <= enrollment_seconds <= 86_400:
@@ -167,7 +174,7 @@ class PanelWeave(gl.Contract):
             fail('Invalid submission commitment')
         if len(exclusions) >= len(roster):
             fail('Invalid exclusions')
-        blocked = ['0x' + bytes(other).hex() for other in exclusions]
+        blocked = [address_hex(other) for other in exclusions]
         if len(set(blocked)) != len(blocked) or any(x == address or x not in roster for x in blocked):
             fail('Invalid exclusions')
         self.entries[address] = canonical({'author': address, 'submission_sha256': submission_sha256,
