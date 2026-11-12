@@ -1,0 +1,38 @@
+name: PanelWeave StudioNet proofs
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        required: true
+        type: choice
+        options: [assigned, impossible]
+permissions:
+  contents: read
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: |
+          pip install -r requirements-dev.txt
+          genvm-lint download --version v0.2.16
+          genvm-lint check contracts/panel_weave.py
+          python -m pytest tests/direct -q
+          npm ci --no-audit --no-fund
+          node --test tests/rpc-preflight.test.cjs
+      - run: node scripts/bootstrap-ci.cjs
+      - run: node scripts/prove.cjs
+        env:
+          PANEL_SCENARIO: ${{ inputs.scenario }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: studionet-proofs
+          path: proofs/*.json

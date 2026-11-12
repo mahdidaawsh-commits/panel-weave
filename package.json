@@ -1,0 +1,8 @@
+{
+  "name": "panel-weave-proof-tooling",
+  "private": true,
+  "version": "0.1.0",
+  "engines": { "node": ">=24 <25" },
+  "devDependencies": { "genlayer": "0.39.2" },
+  "overrides": { "viem": "2.56.3", "genlayer-js": "1.1.8" }
+}
