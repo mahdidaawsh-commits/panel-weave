@@ -11,7 +11,6 @@ GENESIS = 1692803367
 PERIOD = 3
 BEACON_GAP = 120
 RELAYS = ('https://api.drand.sh', 'https://drand.cloudflare.com')
-ADDRESS = r'0x[0-9a-f]{40}'
 ZERO = '0x' + '0' * 40
 
 
@@ -137,12 +136,11 @@ class PanelWeave(gl.Contract):
     entries: TreeMap[str, str]
     resolution: str
 
-    def __init__(self, roster: str, enrollment_seconds: int):
-        if len(roster) > 8 * 43:
+    def __init__(self, roster: list[Address], enrollment_seconds: int):
+        if not 3 <= len(roster) <= 8:
             fail('Invalid roster')
-        addresses = roster.lower().split(',')
-        if (not 3 <= len(addresses) <= 8 or len(set(addresses)) != len(addresses)
-                or any(not re.fullmatch(ADDRESS, address) or address == ZERO for address in addresses)):
+        addresses = ['0x' + bytes(address).hex() for address in roster]
+        if len(set(addresses)) != len(addresses) or ZERO in addresses:
             fail('Invalid roster')
         if not 120 <= enrollment_seconds <= 86_400:
             fail('Invalid enrollment duration')
@@ -156,7 +154,7 @@ class PanelWeave(gl.Contract):
         self.resolution = 'null'
 
     @gl.public.write
-    def enroll(self, submission_sha256: str, exclusions: str) -> None:
+    def enroll(self, submission_sha256: str, exclusions: list[Address]) -> None:
         if now() >= int(self.cutoff):
             fail('Enrollment closed')
         address = str(gl.message.sender_address).lower()
@@ -167,9 +165,9 @@ class PanelWeave(gl.Contract):
             fail('Already enrolled')
         if not re.fullmatch(r'[a-f0-9]{64}', submission_sha256):
             fail('Invalid submission commitment')
-        if len(exclusions) > 8 * 43:
+        if len(exclusions) >= len(roster):
             fail('Invalid exclusions')
-        blocked = exclusions.lower().split(',') if exclusions else []
+        blocked = ['0x' + bytes(other).hex() for other in exclusions]
         if len(set(blocked)) != len(blocked) or any(x == address or x not in roster for x in blocked):
             fail('Invalid exclusions')
         self.entries[address] = canonical({'author': address, 'submission_sha256': submission_sha256,

@@ -67,7 +67,7 @@ async function main() {
 
   process.env.PANEL_ACCOUNT = wallets[4].name;
   const deployment = await invoke(prefix + 'deploy', ['deploy', '--contract', 'contracts/panel_weave.py',
-    '--args', roster.join(','), String(WINDOW)]);
+    '--args', JSON.stringify(roster), String(WINDOW)]);
   const deployed = await receipt(prefix + 'deploy', deployment, true);
   const contract = deployed.to_address || deployed.recipient;
   assert(/^0x[0-9a-f]{40}$/i.test(contract), 'Missing deployed contract');
@@ -97,12 +97,12 @@ async function main() {
     report.trace.push({label, ...info, signer: wallets[actor].address, args, error, state});
     save(prefix + 'progress', report);
   }
-  await verify('deploy', deployed, 4, {args: [roster.join(','), WINDOW]});
+  await verify('deploy', deployed, 4, {args: [roster, WINDOW]});
 
   async function write(label, actor, method, args, error, update = () => {}) {
     process.env.PANEL_ACCOUNT = wallets[actor].name;
     const cli = ['write', contract, method];
-    if (args.length) cli.push('--args', ...args);
+    if (args.length) cli.push('--args', ...args.map(arg => typeof arg === 'string' ? arg : JSON.stringify(arg)));
     const hash = await invoke(prefix + label, cli);
     const raw = await receipt(prefix + label, hash, !error);
     await update();
@@ -113,7 +113,7 @@ async function main() {
   for (let i = 0; i < roster.length; i++) {
     const entry = {author: roster[i], submission_sha256: digest('PanelWeave synthetic submission ' + i),
       exclusions: exclusions[i].slice().sort()};
-    await write('enroll-' + i, i, 'enroll', [entry.submission_sha256, entry.exclusions.join(',')], null, () => {
+    await write('enroll-' + i, i, 'enroll', [entry.submission_sha256, entry.exclusions], null, () => {
       expected.entries.push(entry);
       expected.entries.sort((left, right) => left.author.localeCompare(right.author));
     });

@@ -19,14 +19,15 @@ def warp(vm, seconds):
 def setup(vm, deploy, accounts):
     vm.warp(START)
     roster = ['0x' + bytes(address).hex() for address in accounts[:4]]
-    panel = deploy('contracts/panel_weave.py', ','.join(roster), 120, sdk_version='v0.2.16')
+    panel = deploy('contracts/panel_weave.py', list(accounts[:4]), 120, sdk_version='v0.2.16')
     return panel, roster
 
 
 def enroll(vm, panel, accounts, exclusions):
+    by_address = {'0x' + bytes(account).hex(): account for account in accounts[:4]}
     for i, blocked in enumerate(exclusions):
         vm.sender = accounts[i]
-        panel.enroll(sha256(str(i).encode()).hexdigest(), ','.join(blocked))
+        panel.enroll(sha256(str(i).encode()).hexdigest(), [by_address[address] for address in blocked])
 
 
 def mock_beacon(vm, round_number, signature='12' * 48, second=None, wrong_round=False, bad_hash=False):
@@ -85,7 +86,7 @@ def test_freeze_precedes_entropy_and_withdrawal_removes_consent(direct_vm, direc
     assert roster[3] not in [e['author'] for e in panel.get_state()['entries']]
     warp(direct_vm, panel.get_state()['cutoff'])
     with direct_vm.expect_revert('Enrollment closed'):
-        panel.enroll('e' * 64, '')
+        panel.enroll('e' * 64, [])
     direct_vm.sender = direct_accounts[0]
     with direct_vm.expect_revert('Enrollment closed'):
         panel.withdraw()
@@ -98,12 +99,12 @@ def test_malformed_or_unapproved_enrollment_changes_no_state(direct_vm, direct_d
     panel, roster = setup(direct_vm, direct_deploy, direct_accounts)
     direct_vm.sender = direct_accounts[4]
     with direct_vm.expect_revert('Not eligible'):
-        panel.enroll('a' * 64, '')
+        panel.enroll('a' * 64, [])
     direct_vm.sender = direct_accounts[0]
     with direct_vm.expect_revert('Invalid exclusions'):
-        panel.enroll('a' * 64, roster[0])
+        panel.enroll('a' * 64, [direct_accounts[0]])
     with direct_vm.expect_revert('Invalid submission commitment'):
-        panel.enroll('a', '')
+        panel.enroll('a', [])
     assert panel.get_state()['entries'] == []
 
 

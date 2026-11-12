@@ -6,7 +6,7 @@ The contract draws uniformly from the complete feasible assignments.
 
 The constructor fixes a roster of three to eight addresses and an enrollment
 duration in seconds. Each eligible address signs its own `enroll(sha256, exclusions)`
-transaction. Exclusions are a comma-separated list of roster addresses that the
+transaction. Exclusions are an array of roster addresses that the
 signer cannot review. They apply in that direction. Self review is always
 excluded. A signer can withdraw before the cutoff. Nobody can modify the
 roster, move the cutoff, or choose a different beacon round after deployment.
