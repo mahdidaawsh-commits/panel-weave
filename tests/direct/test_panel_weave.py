@@ -18,7 +18,7 @@ def warp(vm, seconds):
 
 def setup(vm, deploy, accounts):
     vm.warp(START)
-    roster = [str(x).lower() for x in accounts[:4]]
+    roster = ['0x' + bytes(address).hex() for address in accounts[:4]]
     panel = deploy('contracts/panel_weave.py', ','.join(roster), 120, sdk_version='v0.2.16')
     return panel, roster
 
