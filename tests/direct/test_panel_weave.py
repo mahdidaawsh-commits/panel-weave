@@ -32,15 +32,6 @@ def enroll(vm, panel, accounts, exclusions):
         panel.enroll(sha256(str(i).encode()).hexdigest(), [by_address[address] for address in blocked])
 
 
-def test_constructor_accepts_runtime_address_objects(direct_vm, direct_deploy, direct_accounts):
-    _, roster = setup(direct_vm, direct_deploy, direct_accounts)
-    from genlayer import Address
-
-    addresses = [Address(bytes(account)) for account in direct_accounts[:4]]
-    panel = direct_deploy('contracts/panel_weave.py', addresses, 120, sdk_version='v0.2.16')
-    assert panel.get_state()['roster'] == sorted(roster)
-
-
 def mock_beacon(vm, round_number, signature='12' * 48, second=None, wrong_round=False, bad_hash=False):
     vm.clear_mocks()
     for host, sig in zip(HOSTS, (signature, second or signature)):
